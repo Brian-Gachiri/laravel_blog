@@ -1,0 +1,122 @@
+
+
+.logo-image {
+
+    max-height: 50px;
+}
+
+.bg-black{
+
+
+    background: black;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000, rgb(70, 34, 0));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000, rgb(70, 34, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+.bg-orange{
+
+    background-color: rgb(255, 123, 0);
+}
+.bg-gradient-black{
+
+    background: rgb(70, 34, 0);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000, rgb(70, 34, 0));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000, rgb(70, 34, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+h1 {
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: bolder;
+    font-size: 4em;
+}
+
+.text-orange {
+
+    color: rgb(255, 123, 0);
+}
+.text-orange-introvert {
+    color: rgb(238, 170, 107);
+
+}
+
+.text-black {
+    color:#000;
+}
+
+.nav-link{
+
+    color: white !important;
+}
+
+.nav-link:hover{
+
+    color: rgb(255, 123, 0) !important;
+}
+
+.color-overlay {
+	width: 690px;
+	height: 460px;
+	background: /* transparent blue overlay */
+	linear-gradient( rgba(46, 179, 214, 0.60), 
+	rgba(67, 204, 152, 0.60)), 
+	/* inset your image below */
+	url('images/thinkin.jpg');
+}
+
+.btn-sucess{
+
+    font-family: 'Times New Roman', Times, serif !important; 
+
+}
+
+.btn-orange {
+
+    color: white;
+    background-color: rgb(255, 123, 0);
+
+
+}
+.btn-outline-orange {
+
+    color: rgb(255, 123, 0);
+    background-color: transparent;
+    border-color: rgb(255, 123, 0);
+
+
+}
+
+.btn-outline-orange:hover {
+
+    color: white;
+    background-color: rgb(182, 89, 2);
+    border-color: rgb(182, 89, 2);
+
+
+}
+
+.btn-orange:hover {
+
+    color: white;
+    background-color: rgb(182, 89, 2);
+}
+/* 
+h6{
+    font-weight:bold;
+}
+ */
+
+ @media only screen and (max-width: 600px){
+
+    .my-center{
+
+        text-align: center;
+    }
+
+
+}
+
+.image-fit {
+    object-fit: cover;
+}
+
+
