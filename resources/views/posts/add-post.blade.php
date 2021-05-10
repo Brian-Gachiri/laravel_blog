@@ -23,6 +23,28 @@
                     <form action="{{route('create.post')}}" method="post">
                         @csrf
                         @method('POST')
+
+                        <!-- Adding select for categories-->
+
+                        
+                        <div class="form-group">
+                            <label for="inputState">Category</label>
+
+                            <select id="inputState" name="category_id" class="form-control">
+                              <option selected>Choose a category:</option>
+
+                              @foreach ($categories as $category)
+
+                              <option value="{{$category->id}}">{{$category->name}}</option>
+
+                                  
+                              @endforeach
+
+                            </select>
+                          </div>
+
+                        <!-- End select for categories-->
+
       
                         <div class="form-group">
                     

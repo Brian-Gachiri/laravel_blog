@@ -20,7 +20,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
 
-            <img src="{{ asset('images/well.svg')}}" class="img-fluid mx-auto my-auto image-fit" style="height:500px;"
+            <img src="{{ asset('images/well.svg')}}" class="img-fluid mx-auto my-auto " style="height:500px;"
                 alt="Landing page image">
             
         </div>

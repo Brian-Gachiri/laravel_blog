@@ -36,9 +36,7 @@ Route::get('add/project', function() {
 
 Route::get('posts', [App\Http\Controllers\PostController::class, 'index'] )->name('posts');
 
-Route::get('add/post', function() {
-    return view('posts.add-post');
-})->name('add.post');
+Route::get('add/post',[App\Http\Controllers\PostController::class, 'create'])->name('add.post');
 
 
 Route::post('create/project',

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -29,6 +31,10 @@ class PostController extends Controller
     public function create()
     {
         //
+
+        $categories = Category::all();
+
+        return view('posts.add-post', compact('categories'));
     }
 
     /**
@@ -40,14 +46,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-
-
         Post::create([
             "title" => $request->title,
             "featured_image_url" => $request->image,
             "post" => $request->post,
             "user_id" => 1,
-            "category_id" => 1,
+            "category_id" => $request->category_id,
         ]);
 
         return redirect()->route('home');
@@ -64,8 +68,9 @@ class PostController extends Controller
         //
 
         $post = Post::findOrFail($id);
+        $comments = Comment::where('post_id', $id)->get();
 
-        return view('posts.view-post', compact('post'));
+        return view('posts.view-post', compact('post', 'comments'));
 
     }
 
@@ -125,8 +130,9 @@ class PostController extends Controller
     public function showDetails($id)
     {
         $post = Post::findOrFail($id);
+        $comments = Comment::where('post_id', $id)->get();
 
-        return view('posts.detail-post', compact('post'));
+        return view('posts.detail-post', compact('post', 'comments'));
 
     }
 }

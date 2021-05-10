@@ -36,7 +36,7 @@
         <h3>{{$post->title}}</h3>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col-lg-10 col-md-10 col-sm-12">
             <p>{{$post->post}}</p>
 
@@ -60,6 +60,15 @@
                     </form>
                 </div>
             </div>
+
+            <h5 class="mt-4 ml-4">Recent Comments</h5>
+
+            @foreach ($comments as $comment)
+
+            @include('posts.comment')
+            <hr>
+                
+            @endforeach
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
             <!--Hopefully an assignment: Add a card to subscribe to newsletter-->
