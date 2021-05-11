@@ -15,7 +15,7 @@
     @endif
 
     <!--Row with list of categories-->
-    <div class="row my-3">
+    <div class="row justify-content-center my-3">
         <a href="#" class="btn btn-outline-secondary rounded-pill mx-1">Web Development: PHP</a>
         <a href="#" class="btn btn-outline-secondary rounded-pill mx-1">Web Development: Python</a>
         <a href="#" class="btn btn-outline-secondary rounded-pill mx-1">Mobile Development: Java</a>
