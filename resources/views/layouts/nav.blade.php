@@ -16,7 +16,7 @@
             <ul class="navbar-nav ml-auto navbar-dark">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('about')}}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="mywork.html">My work</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('show.project.list')}}">My work</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('show.post.list')}}">Blog</a></li>
 
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact', 1)}}">Contact</a></li>
