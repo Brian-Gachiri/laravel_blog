@@ -135,4 +135,24 @@ class PostController extends Controller
         return view('posts.detail-post', compact('post', 'comments'));
 
     }
+
+    public function showPostList(Request $request)
+    {
+        // $request->whenHas( 'category', function(){
+
+        // });
+
+        $categories = Category::all();
+
+        if($request->has('category')){
+
+            $posts = Post::where('category_id', $request->category)->get();
+        }
+        else{
+            $posts = Post::all();
+
+        }
+
+        return view('posts.posts-list', compact('posts', 'categories'));
+    }
 }

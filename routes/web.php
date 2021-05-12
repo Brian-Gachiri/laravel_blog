@@ -54,6 +54,7 @@ Route::get('edit/project/{id}',
  Route::get('show/project/details/{id}',
  [App\Http\Controllers\ProjectController::class, 'showDetails'])->name('show.project.details');
 
+
  Route::get('show/post/{id}',
  [App\Http\Controllers\PostController::class, 'show'])->name('show.post');
 
@@ -76,3 +77,6 @@ Route::post('store/category', [App\Http\Controllers\CategoryController::class, '
 Route::get('delete/category/{id}',[App\Http\Controllers\CategoryController::class, 'destroy'])->name('delete.category');
 Route::get('edit/category/{id}',[App\Http\Controllers\CategoryController::class, 'edit'])->name('edit.category');
 Route::post('update/category/{id}',[App\Http\Controllers\CategoryController::class, 'update'])->name('update.category'); 
+
+Route::get('posts/list/', [App\Http\Controllers\PostController::class, 'showPostList'])->name('show.post.list');
+Route::get('projects/list/', [App\Http\Controllers\ProjectController::class, 'showProjectList'])->name('show.project.list');

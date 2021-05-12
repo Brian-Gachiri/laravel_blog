@@ -130,7 +130,25 @@ class ProjectController extends Controller
 
         $project = Project::findorFail($id);
 
-        return view('projects.details-project', compact('project'));
+        $related_projects = Project::where('platform', 'LIKE', '%'.$project->platform.'%')->get();
 
+        return view('projects.details-project', compact('project', 'related_projects'));
+
+    }
+
+    public function showProjectList(Request $request){
+
+
+        if($request->has('platform')){
+
+            $projects = Project::where('platform','LIKE','%'.$request->platform."%")->get();
+        }
+        else{
+            $projects = Project::all();
+
+        }
+
+
+        return view('projects.projects-list', compact('projects'));
     }
 }
