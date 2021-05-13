@@ -20,7 +20,7 @@
             <div class="card border-0 shadow-sm">
 
                 <div class="card-body">
-                    <form action="{{route('create.post')}}" method="post">
+                    <form action="{{route('create.post')}}" method="post"  enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 

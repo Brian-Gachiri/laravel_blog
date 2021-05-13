@@ -1,6 +1,6 @@
 <div class="card h-100 border-0 shadow-sm">
 
-    <a href="{{route('show.post.details', $post->id)}}"><img src="{{asset('images/blog.jpg')}}" class="img-fluid card-img-top" alt="Blog Post Image"/>
+    <a href="{{route('show.post.details', $post->id)}}"><img src="{{asset('storage/images/'.$post->featured_image_url)}}" class="img-fluid card-img-top" alt="Blog Post Image"/>
     </a>
 
 
