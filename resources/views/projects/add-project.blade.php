@@ -24,7 +24,7 @@
                     <h4 class="text-orange">Enter Project Details</h5>
 
 
-                    <form action="{{route('create.project')}}" method="post">
+                    <form action="{{route('create.project')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
@@ -43,7 +43,7 @@
 
                         <div class="form-group">
                             <label>Featured Image:</label>
-                            <input type="file" name="featured_image_url" class="form-control" placeholder="Write your comment"/>    
+                            <input type="file" name="image" class="form-control" placeholder="Write your comment"/>    
                         </div>
 
                         <div class="form-group">

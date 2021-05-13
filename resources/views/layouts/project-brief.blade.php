@@ -1,6 +1,6 @@
 <div class="card bg-dark text-white h-100 border-0 shadow-sm">
 
-    <a href="{{route('show.project.details', $project->id)}}"><img src="{{asset('images/thinkin.jpg')}}" class="img-fluid card-img-top image-fit" style="max-height:200px;" alt="Blog Post Image"/>
+    <a href="{{route('show.project.details', $project->id)}}"><img src="{{asset('storage/images/'.$project->featured_image_url)}}" class="img-fluid card-img-top image-fit" style="max-height:200px;" alt="Blog Post Image"/>
     </a>
 
 
