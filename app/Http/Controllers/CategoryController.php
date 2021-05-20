@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -43,13 +44,31 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-        Category::create([
-            'name' => $request->name,
+        //A validato instance can accept data, validation rules and error messages
+        
+        $rules = [
+            'name' => 'required|max:255|string|unique:categories'
+        ];
+        
+        $validator = Validator::make($request->all(), $rules, $messages = [
+            'required' => 'Changamka Brathe, it cannot be empty.'
         ]);
 
-        return redirect()->route('categories');
+        if($validator->fails()){
+
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        else{
+
+            Category::create([
+                'name' => $request->name,
+            ]);
+    
+            return redirect()->route('categories');
+        }
+
+   
     }
 
     /**

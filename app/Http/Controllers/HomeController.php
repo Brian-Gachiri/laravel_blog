@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Post;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -28,10 +29,11 @@ class HomeController extends Controller
 
         $projects = Project::all();
         $posts = Post::all();
+        $categories = Category::all();
 
 
         // return view('home')->with('projects', $projects);
 
-        return view('home', compact('posts', 'projects'));
+        return view('home', compact('posts', 'projects', 'categories'));
     }
 }

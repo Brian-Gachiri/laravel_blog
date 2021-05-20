@@ -6,40 +6,55 @@
 
     <div class="row mt-5">
 
-
-            <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <a href="{{route('categories')}}">
                 <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fa fa-th-large fa-3x mb-3 text-dark"></i>
+                        <h5 class="text-dark">Total Categories</h5>
+                        <h4 class="text-dark">{{$categories->count()}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
 
+
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <a href="{{route('posts')}}">
+                <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body text-center">
                         <i class="fa fa-th-large fa-3x mb-3 text-info"></i>
                         <h5 class="text-info">Total Posts</h5>
-                        <h4>{{$posts->count()}}</h4>
+                        <h4 class="text-dark">{{$posts->count()}}</h4>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <a href="{{route('projects')}}">
                 <div class="card border-0 shadow-sm h-100">
-
                     <div class="card-body text-center">
                         <i class="fa fa-th-list fa-3x mb-3 text-success"></i>
                         <h5 class="text-success">Total Projects</h5>
-                        <h4>{{$projects->count()}}</h4>
+                        <h4 class="text-dark">{{$projects->count()}}</h4>
                     </div>
                 </div>
-            </div>
+            </a>
+        </div>
 
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="card border-0 shadow-sm">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="card border-0 shadow-sm">
 
-                    <div class="card-body text-center">
-                        <i class="fa fa-comments fa-3x mb-3 text-orange"></i>
-                        <h5 class="text-orange">Total Comments</h5>
-                        <h4>56</h4>                    
-                    </div>
+                <div class="card-body text-center">
+                    <i class="fa fa-comments fa-3x mb-3 text-orange"></i>
+                    <h5 class="text-orange">Total Comments</h5>
+                    <h4>56</h4>                    
                 </div>
             </div>
+        </div>
 
 
         </div>

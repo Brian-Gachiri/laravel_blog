@@ -48,6 +48,13 @@ class PostController extends Controller
     {
         //
 
+        $request->validate([
+            'title'=> 'required|unique:posts|max:255',
+            'post' => 'required',
+            'image' => 'mimes:jpeg, jpg, svg, png'
+        ]);
+
+
         if($request->hasFile('image')){
             $allowedfileExtension=['jpg','jpeg','png','svg'];
             $file = $request->file('image');

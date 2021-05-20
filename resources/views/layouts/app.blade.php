@@ -30,7 +30,9 @@
     <div id="app">
 
 
-@include('layouts.nav')
+        @include('layouts.nav')
+
+        {{-- @include('layouts.sidebar') --}}
 
         <main class="py-4">
             @yield('content')

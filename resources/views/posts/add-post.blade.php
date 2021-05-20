@@ -4,6 +4,16 @@
 
 <div class="container-fluid">
 
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error )
+                    <li>{{$error}}</li>                    
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="row justify-content-center">
 
         <h3 class="text-orange font-weight-bold"><i class="fa fa-edit"></i> Add New Post</h3>
@@ -49,7 +59,11 @@
                         <div class="form-group">
                     
                             <label>Title:</label>
-                            <input type="text" name="title"  class="form-control" placeholder="Write your title"/>
+                            <input type="text" name="title" value="{{request()->old('title')}}" class="form-control" placeholder="Write your title"/>
+
+                            @error('title')
+                                <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
                         </div>
 
                         
@@ -61,7 +75,7 @@
                         <div class="form-group">
                     
                             <label>Post:</label>
-                            <textarea type="text" name="post" class="form-control" style="height: 300px" placeholder="What are you thinking?"></textarea>
+                            <textarea type="text" name="post" class="form-control" style="height: 300px" placeholder="What are you thinking?">{{old('post')}}</textarea>
                         </div>
 
 
