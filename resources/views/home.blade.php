@@ -88,7 +88,8 @@
                             </thead>
                             <tbody>
                                 @foreach ($projects as $project)
-                                    <tr>
+                                <tr id="project_id_{{ $project->id }}">
+
                                         <td>{{$project->id}}</td>
                                         <td>{{$project->name}}</td>
                                         <td>{{\Illuminate\Support\Str::limit($project->description, 10)}}</td>
@@ -96,7 +97,10 @@
                                         <td>{{$project->created_at}}</td>
                                         <td>
                                             <a href="{{route('edit.project', $project->id)}}" class="btn btn-orange btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            <a href="javascript:void(0)" 
+                                            class="btn btn-danger btn-sm delete-project"
+                                            data-id="{{$project->id}}">
+                                            <i class="fa fa-trash"></i></a>
     
                                         </td> 
                                     </tr>
@@ -288,4 +292,45 @@
 
         </div>
 </div>
+@endsection
+
+@section('scripts')
+
+<script>
+
+    $(document).ready(function () {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        $('body').on('click', '.delete-project', function () {
+
+            var id = $(this).data("id");
+            confirm("Are you sure you want to delete");
+
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    'id': id
+                },
+                success: function (data) {
+
+                },
+                error: function (data) {
+                    
+                }
+            });
+        })
+
+
+
+    });
+        
+</script>
+
 @endsection
