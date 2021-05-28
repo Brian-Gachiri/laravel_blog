@@ -68,8 +68,8 @@ Route::get('edit/project/{id}',
  Route::post('create/post',
  [App\Http\Controllers\PostController::class, 'store'])->name('create.post');
 
- Route::get('delete/project/{id}',[App\Http\Controllers\ProjectController::class, 'destroy'])->name('delete.project');
- Route::get('delete/post/{id}',[App\Http\Controllers\PostController::class, 'destroy'])->name('delete.post');
+ Route::post('delete/project',[App\Http\Controllers\ProjectController::class, 'destroy'])->name('delete.project');
+ Route::post('delete/post',[App\Http\Controllers\PostController::class, 'destroy'])->name('delete.post');
 
 Route::get('categories/', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
 Route::get('create/category',[App\Http\Controllers\CategoryController::class, 'create'])->name('create.category');

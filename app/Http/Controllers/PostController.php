@@ -154,14 +154,23 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
-        $post = Post::findOrFail($id);
+        $post = Post::findOrFail($request->id);
+
+        if($post->featured_image_url != null){
+
+            Storage::delete('public/images/'.$post->featured_image_url);
+
+        }
+
+        $comments = Comment::where('post_id', $post->id)->delete();
 
         $post->delete();
 
-        return redirect()->back()->with('message', 'Deleted Successfully!');
+        return response()->json();
+
     }
 
     public function showDetails($id)

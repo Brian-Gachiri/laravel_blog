@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" defer></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
     <!-- Fonts -->
