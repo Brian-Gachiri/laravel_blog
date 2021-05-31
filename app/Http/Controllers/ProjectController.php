@@ -151,7 +151,7 @@ class ProjectController extends Controller
     public function destroy(Request $request)
     {
         //
-        $project = Project::findOrFail($request->i);
+        $project = Project::findOrFail($request->id);
         if($project->featured_image_url != null){
 
             Storage::delete('public/images/'.$project->featured_image_url);

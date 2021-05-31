@@ -314,70 +314,76 @@
         $('body').on('click', '.delete-project', function () {
 
             var id = $(this).data("id");
-            confirm("Are you sure you want to delete");
+
+            if(confirm("Are you sure you want to delete")){
+
+                $('.project_icon_'+id).removeClass('fa-trash');
+                $('.project_icon_'+id).addClass('fa-spinner fa-spin')
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('delete.project')}}",
+                    data: {
+                        'id': id
+                    },
+                    success: function (data) {
+                        $('.project_icon_'+id).addClass('fa-trash');
+                        $('.project_icon_'+id).removeClass('fa-spinner fa-spin');
+                        $("#project_id_"+id).remove();
+                    },
+                    error: function (data) {
+                        
+                        console.log('Error:', data);
+
+                        Swal.fire({
+                            title: 'Sorry!',
+                            text: 'Something went wrong.',
+                            icon: 'error',
+                            confirmButtonText: 'Ni sawa'
+                        })
+                    }
+                });
+            }
             
-            $('.project_icon_'+id).removeClass('fa-trash');
-            $('.project_icon_'+id).addClass('fa-spinner fa-spin')
-
-
-            $.ajax({
-                type: "POST",
-                url: "{{route('delete.project')}}",
-                data: {
-                    'id': id
-                },
-                success: function (data) {
-                    $('.project_icon_'+id).addClass('fa-trash');
-                    $('.project_icon_'+id).removeClass('fa-spinner fa-spin');
-                    $("#project_id_"+id).remove();
-                },
-                error: function (data) {
-                    
-                    console.log('Error:', data);
-
-                    Swal.fire({
-                        title: 'Sorry!',
-                        text: 'Something went wrong.',
-                        icon: 'error',
-                        confirmButtonText: 'Ni sawa'
-                    })
-                }
-            });
+            
         })
 
 
         $('body').on('click', '.delete-post', function () {
 
             var id = $(this).data("id");
-            confirm("Are you sure you want to delete");
 
-            $('.post_icon_'+id).removeClass('fa-trash');
-            $('.post_icon_'+id).addClass('fa-spinner fa-spin')
+            if(confirm("Are you sure you want to delete")){
+                $('.post_icon_'+id).removeClass('fa-trash');
+                $('.post_icon_'+id).addClass('fa-spinner fa-spin')
 
 
-            $.ajax({
-                type: "POST",
-                url: "{{route('delete.post')}}",
-                data: {
-                    'id': id
-                },
-                success: function (data) {
-                    $('.post_icon_'+id).addClass('fa-trash');
-                    $('.post_icon_'+id).removeClass('fa-spinner fa-spin');
-                    $("#post_id_"+id).remove();
-                },
-                error: function (data) {
-                    
-                    console.log('Error:', data);
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('delete.post')}}",
+                    data: {
+                        'id': id
+                    },
+                    success: function (data) {
+                        $('.post_icon_'+id).addClass('fa-trash');
+                        $('.post_icon_'+id).removeClass('fa-spinner fa-spin');
+                        $("#post_id_"+id).remove();
+                    },
+                    error: function (data) {
+                        
+                        console.log('Error:', data);
 
-                    Swal.fire({
-                        title: 'Sorry!',
-                        text: 'Something went wrong.',
-                        icon: 'error',
-                        confirmButtonText: 'Ni sawa'
-                    })
-                }
-            });
+                        Swal.fire({
+                            title: 'Sorry!',
+                            text: 'Something went wrong.',
+                            icon: 'error',
+                            confirmButtonText: 'Ni sawa'
+                        })
+                    }
+                });
+            }
+
+            
 })
 
 
