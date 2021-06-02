@@ -44,9 +44,7 @@
                 <div class="card-body">
                     <h5>Add a comment</h5>
 
-                    <form action="{{route('store.comment')}}" method="POST">
-                        @csrf
-                        @method('post')
+                    <form id="reviewForm">
 
                         <input type="hidden" value="{{$post->id}}" name="post_id"/>
 
@@ -122,6 +120,47 @@
                 confirmButtonText: 'Cool'
         });
     }
+
+    $(document).ready(function () {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+
+            .('#reviewForm').on('submit', function (){
+
+                //When the form is submitted
+                // we override the default action
+                event.preventDefault();
+
+                $.ajax({
+                    data: $('#reviewForm').serialize(),
+                    url: "{{route('store.comment')}}",
+                    type: "POST",
+                    dataType: 'json',
+
+                    success: function(data) {
+                        $('#myModal').modal("show");
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Something went wrong',
+                            icon: 'error',
+                            confirmButtonText: 'Duly Noted'
+                        })
+                    }
+                });
+            });
+
+        });
+
+
+
+    })
 
 </script>
 @endsection

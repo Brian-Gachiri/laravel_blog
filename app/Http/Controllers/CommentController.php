@@ -44,7 +44,7 @@ class CommentController extends Controller
             'post_id' => $request->post_id
         ]);
         
-        return redirect()->back()->with('message', 'Comment added successfully. Thank you.');
+        return response()->json();
     }
 
     /**
