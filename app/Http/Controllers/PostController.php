@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\User;
+use App\Notifications\NewPostNotification;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Storage;
 
@@ -72,7 +74,7 @@ class PostController extends Controller
                   * If the extension is corrct, then we save the file.
                   */
                  $saved_file = $file->storeAs('public/images', $file_name);
-             } 
+             }
              else{
                  $saved_file = "You can only enter an image.";
                  return redirect()->back()->with('error', $saved_file);
@@ -91,7 +93,12 @@ class PostController extends Controller
             "category_id" => $request->category_id,
         ]);
 
-        return redirect()->route('home')->with('message', 'Image added successfully.');
+            $user = User::where('id', 1)->first();
+            if ($user){
+                $user->notify(new NewPostNotification());
+            }
+
+        return redirect()->route('home')->with('message', 'Post added successfully.');
     }
 
     /**
